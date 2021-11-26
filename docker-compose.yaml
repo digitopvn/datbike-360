@@ -1,0 +1,10 @@
+version: "3"
+services:
+  datbike_360:
+    build:
+      context: .
+      dockerfile: deployment/Dockerfile
+    ports:
+      - 8000:80
+    volumes:
+    - ./build:/usr/share/nginx/html/
