@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Datbike 360º Player</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<script defer src="https://cdn.jsdelivr.net/npm/@3dweb/360javascriptviewer/lib/JavascriptViewer.min.js"></script>
+		<!-- <script src="static/js/360.js"></script> -->
+
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+			crossorigin="anonymous"
+		/>
+
+		<link rel="stylesheet" href="static/css/360.css" />
+	</head>
+	<body>
+		<!-- <h1>Datbike 360º Player</h1> -->
+
+		<script type="application/javascript">
+			window.addEventListener("load", () => {
+				const jsv = new JavascriptViewer({
+					mainHolderId: "jsv-holder",
+					mainImageId: "jsv-image",
+					imageUrlFormat: "static/images/datbike_xx.png",
+					totalFrames: 28,
+					defaultProgressBar: true,
+					speed: 90,
+					inertia: 12,
+					// reverse: true,
+					zoom: false,
+					autoRotate: 1,
+					notificationConfig: {
+						dragToRotate: {
+							showStartToRotateDefaultNotification: true,
+							mainColor: "rgba(0,0,0,0.20)",
+							textColor: "rgba(243,237,237,0.80)",
+						},
+					},
+				});
+
+				jsv
+					.start()
+					.then(() => console.log("viewer started"))
+					.catch((e) => console.log("failed loading 360 viewer: " + e));
+			});
+		</script>
+
+		<div id="player-360" class="player-360">
+			<div id="jsv-holder">
+				<img id="jsv-image" alt="your 360 images" src="static/images/datbike_01.png" />
+			</div>
+		</div>
+	</body>
+</html>
